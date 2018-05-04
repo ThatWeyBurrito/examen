@@ -1,5 +1,5 @@
 const express = require('express');
-const Movie = require('../models/movie');
+const Cars = require('../models/cars');
 
 function index(request, response, next) {
   const page = request.params.page ? request.params.page : 1;
