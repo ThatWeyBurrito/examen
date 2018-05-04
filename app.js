@@ -24,9 +24,9 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/users', users);
-app.use('/movies', securityMiddleware.verifyToken, movies);
+
+app.use('/cars', cars);
+//app.use('/movies', securityMiddleware.verifyToken, movies);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
