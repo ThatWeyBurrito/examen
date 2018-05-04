@@ -1,5 +1,5 @@
 const express = require('express');
-const User = require('../models/user');
+const Cars = require('../models/Cars');
 const bcrypt = require('bcrypt');
 const async = require('async');
 
@@ -12,13 +12,13 @@ function index(request, response, next) {
     if (err) {
       response.json({
         error: true,
-        message: 'no se pudo extraer los usuarios',
+        message: 'no se pudo extraer los carros',
         objs: {}
       });
     } else {
       response.json({
         error: false,
-        message: 'Lista de Usuarios',
+        message: 'Lista de Carros',
         objs: objs
       });
     }
@@ -26,15 +26,16 @@ function index(request, response, next) {
 }
 
 function create(request, response, next) {
-  const name = request.body.name;
-  const lastName = request.body.lastName;
-  const email = request.body.email;
-  const password = request.body.password;
+  const model = request.body.model;
+  const description = request.body.description;
+  const status = request.body.status;
+  const color = request.body.color;
 
-  let user = new User();
-  user.name = name;
-  user.lastName = lastName;
-  user.email = email;
+  let cars = new User();mongodb://<dbuser>:<dbpassword>@ds115340.mlab.com:15340/cardealer
+  cars.model = model;
+  cars.description = description;
+  cars.status = status;
+  cars.color = color;
 
   const saltRounds = 10;
 

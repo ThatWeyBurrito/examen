@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const moviesController = require('../controllers/moviesController');
+const moviesController = require('../controllers/carsController');
 
-router.get('/:page?', moviesController.index);
+router.get('/:page?', carsController.index);
 
-router.post('/', moviesController.create);
+router.post('/', carsController.create);
 
-router.put('/:id', moviesController.update);
+router.put('/:id', carsController.update);
 
-router.delete('/:id', moviesController.remove);
+router.delete('/:id', carsController.remove);
 
 module.exports = router;

@@ -10,13 +10,13 @@ function index(request, response, next) {
     if (err) {
       response.json({
         error: true,
-        message: 'no se pudo extraer las peliculas.',
+        message: 'no se pudo extraer los carros.',
         objs: {}
       });
     } else {
       response.json({
         error: false,
-        message: 'Lista de Peliculas',
+        message: 'Lista de carros',
         objs: objs
       });
     }
@@ -24,28 +24,28 @@ function index(request, response, next) {
 }
 
 function create(request, response, next) {
-  const title = request.body.title;
-  const genre = request.body.genre;
-  const duration = request.body.duration;
-  const director = request.body.director;
+  const model = request.body.model;
+  const description = request.body.description;
+  const status = request.body.status;
+  const color = request.body.color;
 
-  let movie = new Movie();
-  movie.title = title;
-  movie.genre = genre;
-  movie.duration = duration;
-  movie.director = director;
+  let cars = new Cars();
+  cars.model = title;
+  cars.description = genre;
+  cars.status = duration;
+  cars.color = director;
 
-  movie.save((err, obj) => {
+  cars.save((err, obj) => {
     if (err) {
       response.json({
         error: true,
-        message: 'Pelicula no  Guardada',
+        message: 'Carro no guardado',
         objs: {}
       });
     } else {
       response.json({
         error: false,
-        message: 'Pelicula Guardada',
+        message: 'Carro guardado',
         objs: obj
       });
     }
@@ -53,10 +53,10 @@ function create(request, response, next) {
 }
 
 function update(request, response, next) {
-  const title = request.body.title;
-  const genre = request.body.genre;
-  const duration = request.body.duration;
-  const director = request.body.director;
+  const model = request.body.model;
+  const description = request.body.description;
+  const status = request.body.status;
+  const color = request.body.color;
 
 
 
@@ -66,19 +66,19 @@ function update(request, response, next) {
 function remove(request, response, next) {
   const id = request.params.id;
   if (id) {
-    Movie.remove({
+    Cars.remove({
       _id: id
     }, function(err) {
       if (err) {
         response.json({
           error: true,
-          message: 'Pelicula no Eliminada',
+          message: 'Carro no eliminado',
           objs: {}
         });
       } else {
         response.json({
           error: false,
-          message: 'Pelicula Eliminada',
+          message: 'Carro eliminado',
           objs: {}
         });
       }
@@ -86,7 +86,7 @@ function remove(request, response, next) {
   } else {
     response.json({
       error: true,
-      message: 'Pelicula no Existe',
+      message: 'Carro no existe',
       objs: {}
     });
   }

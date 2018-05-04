@@ -6,9 +6,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const securityMiddleware = require('./middlewares/securityMiddleware');
 
-const index = require('./routes/index');
-const users = require('./routes/users');
-const movies = require('./routes/movies');
+const cars = require('./routes/cars');
 
 var app = express();
 
